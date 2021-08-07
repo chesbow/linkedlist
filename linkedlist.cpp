@@ -126,5 +126,7 @@ int main(){
     print(list);
     remove(list, 0);
     print(list);
+    removeHead(list);
+    print(list);
 
 }
