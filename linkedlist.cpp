@@ -66,21 +66,35 @@ Node* index(LinkedList &list, int i){
     return node;
 }
 
+
+void removeHead(LinkedList &list);
+
+
 void remove(LinkedList &list, int i){
     Node *node = list.head;
     Node *q;
-    for (int j=0; j<i; j++){
-        if (j==(i-1)){
-            q = node;
-        }
-        if (node!=NULL){
-            node = node->next;
-        }
+    if (i==0){
+        removeHead(list);
     }
-    q->next = node->next;
-    delete node;
+    else{
+        for (int j=0; j<i; j++){
+            if (j==(i-1)){
+                q = node;
+            }
+            if (node!=NULL){
+                node = node->next;
+            }
+        }
+        q->next = node->next;
+        delete node;
+    }
 }
 
+void removeHead(LinkedList &list){
+    Node *node = list.head;
+    list.head = list.head->next;
+    delete node;
+}
 void print(LinkedList &list){
     Node *node = list.head;
     while(node!=NULL){
@@ -109,6 +123,8 @@ int main(){
     insertAfterQ(list, node3, node5);
     print(list);
     remove(list, 1);
+    print(list);
+    remove(list, 0);
     print(list);
 
 }
