@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct Node{
@@ -83,6 +84,7 @@ void remove(LinkedList &list, int i){
             }
             if (node!=NULL){
                 node = node->next;
+
             }
         }
         q->next = node->next;
@@ -128,5 +130,7 @@ int main(){
     print(list);
     removeHead(list);
     print(list);
+
+    
 
 }
